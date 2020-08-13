@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style type="text/css">
+  #style{
+     border:1px solid black;
+     width:100px;
+     height:100px;
+     margin-left:22%;
+
+  }
+  h3{
+    text-align: center;
+  }
+  #div{
+
+    background-color:#C2C2C2;
+    width:400px;
+    height:300px;
+    border:1px solid block;
+    border-radius:4px;
+    margin: 0 auto;
+
+  }
+  form{
+    padding-left:22%;
+  }
+  #Clarity{
+    margin-left:22%;
+  }
+  label{
+    font-size: 15px;
+    margin-left:22%;
+  }
+</style>
+</head>
+<body>
+  <div id="div">
+    <input style="color:black;" type="submit" id="hide" value="Hide_items">
+    <br>
+    <div id="hide_m">
+    
+     <label>Enter your color name (English)</label>
+      <form action="#">
+       <input type="text" id="color">
+       <input type="submit" id="click">
+      </form>
+   <label>Select the degree of clarity</label>
+  <br>
+   <select id="Clarity">
+    <option>
+        the clarity
+    </option>
+    <option value="0.6">
+       90%
+    </option>
+    <option value="0.5">
+      70%
+    </option>
+
+    <option value="0.4">
+       60%
+    </option>
+
+    <option value="0.3">
+       40%
+    </option>
+
+    <option value="0.2">
+       20%
+    </option>
+</select>
+    <div id="style">
+       <h3>color</h3>
+    </div>
+   </div>
+  </div>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $(document).on('click','#click',function(){
+            var color=$('#color').val();
+            $("#style").css('background',color)
+
+        });
+      $('#Clarity').change(function(){ 
+            var Clarity =$(this).val();
+            $("#style").fadeTo("slow",Clarity);
+          });
+
+      $('#hide').click(function(){
+
+           var hide=$("#hide").val();
+
+           if (hide == 'Hide_items')
+           {
+              $("#hide").val('show_items');
+              $("#hide_m").fadeOut('slow');
+           }
+
+           if (hide == 'show_items')
+           {
+              $("#hide").val('Hide_items');
+              $("#hide_m").fadeIn('slow');
+           }
+
+      }); 
+   });
+    </script>
+</body>
+</html>
